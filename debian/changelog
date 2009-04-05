@@ -1,12 +1,6 @@
-hardlink (0.1.1) unstable; urgency=low
+reallysimplebackup (0.0.1) jaunty; urgency=low
 
-  * Prevent overwriting already existing backup files (Closes: #514772)
-  * debian/control: Add ${misc:Depends} to dependencies
+  * Initial version
 
- -- Julian Andres Klode <jak@debian.org>  Wed, 11 Feb 2009 14:02:15 +0100
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Mon, 06 Apr 2009 00:10:50 +0300
 
-hardlink (0.1) unstable; urgency=low
-
-  * Initial upload to Debian (Closes: #509685)
-
- -- Julian Andres Klode <jak@debian.org>  Fri, 26 Dec 2008 14:33:48 +0100
