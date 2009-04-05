@@ -22,13 +22,15 @@ install:
 
 	install -D -o root -g root -m 644 reallysimplebackup.cron $(CRONDIR)/reallysimplebackup
 	install -D -o root -g root -m 644 reallysimplebackup.1  $(MANDIR)/man1/reallysimplebackup.1
+	ln -s reallysimplebackup.1 $(MANDIR)/man1/reallysimplebackup-rsync.1
+	ln -s reallysimplebackup.1 $(MANDIR)/man1/reallysimplebackup-rotate.1
 
 clean:
 	rm -f *~
 
 deb:
-	debuild -i -us -uc --lintian-opts --pedantic -i -I -E
+	debuild -i -E -us -uc -j2 --lintian-opts --pedantic -i -I -E
 
 deb-sign:
-	debuild -i --lintian-opts --pedantic -i -I -E
+	debuild -i -E -j2 --lintian-opts --pedantic -i -I -E
 
