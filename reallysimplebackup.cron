@@ -1,0 +1,14 @@
+#
+# cron-jobs for backup-rsync and backup-rotate
+#
+
+MAILTO=root
+
+# every 15 minutes, sync backup
+*/15 * * * *     root if [ -x /usr/local/bin/backup-rsync ]; then /usr/local/bin/backup-rsync; fi
+# every 6 hours, rotate backup
+5 */6 * * *     root if [ -x /usr/local/bin/backup-rotate ]; then /usr/local/bin/backup-rotate; fi
+
+# at every reboot, force backup-rsync
+@reboot root if [ -x /usr/local/bin/backup-rsync ]; then /usr/local/bin/backup-rsync after-reboot; fi
+

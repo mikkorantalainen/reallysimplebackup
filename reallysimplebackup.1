@@ -1,0 +1,30 @@
+.\" Copyright (C) 2009 Mikko Rantalainen. See README for license.
+.TH reallysimplebackup 1 "2009-04-05" "0.1.0"
+.SH NAME
+reallysimplebackup \- create and rotate backups in the system
+.SH SYNOPSIS
+.B reallysimplebackup-rsync
+.RI [ option ]...
+.RI [ directory ]...
+.SH DESCRIPTION
+.B hardlink
+is a tool which replaces copies of a file with hardlinks, therefore saving
+space.
+.SH OPTIONS
+.TP
+.B \-h or \-\-help
+print quick usage details to the screen.
+.TP
+.B \-v[=LEVEL] or \-\-verbose[=LEVEL]
+Set verbosity of output, if used without an argument, increase current
+verbosity by one.
+
+.SH ARGUMENTS
+.B reallysimplebackup-rsync
+takes no arguments.
+.B reallysimplebackup-rotate
+takes no arguments.
+
+.SH AUTHOR
+The program reallysimplebackup and this manpage have been written by Mikko Rantalainen,
+and are licensed under the GNU GPL license.

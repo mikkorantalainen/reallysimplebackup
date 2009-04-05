@@ -1,0 +1,46 @@
+# list of files and directories to exclude from backup
+- /home/**/cache/
+- /home/**/Cache/
+- /home/**/.cache/
+- /home/*/.gvfs
+- /home/**/.kde/tmp-desktop
+- /home/**/.kde/socket-desktop
+- /home/**/lock
+- /home/**/Mail/**/*.msf
+- /**/.local/share/Trash/
+- /home/*/.dbus/*session/
+- /home/*/.Xauthority
+- /**/.Trash-[0-9]/
+- /**/.Trash-[0-9][0-9]/
+- /**/.Trash-[0-9][0-9][0-9]/
+- /**/.Trash-[0-9][0-9][0-9][0-9]/
+- /**/*-cache/
+- /**/*-cache
+- /**/*-cache-2
+- /**/cache*
+- /**/tmp/**cache**
+- /**/*.bak
+- /**/*~
+- /**/.beagle/
+- /**/.trackerd/
+- /**/.thumbnails/
+- /**/.Thumbnails/
+- /tmp/
+- /var/cache/
+- /var/run/
+- /var/
+
+# optionally, excluded files provided by OS
+- /bin/
+- /boot/
+- /dev/
+#- /etc/
+- /lib/
+- /media/
+- /mnt/
+- /proc/
+- /sbin/
+- /srv/
+- /sys/
+- /usr/
+

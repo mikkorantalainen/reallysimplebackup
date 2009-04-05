@@ -1,0 +1,24 @@
+README for reallysimplebackup
+=============================
+reallysimplebackup is a collection of scripts to do a simple rotating backup
+of the whole system. Behind the curtains, the scripts use rsync, cp -al and
+hardlink. Scripts are written in bash and python.
+
+Installation
+------------
+To install hardlink into /usr, run make install.
+
+ * DESTDIR - May be set to another root system (useful for packaging)
+ * PREFIX  - Normally usr, may be changed to usr/local
+ * MANDIR  - Normally $(PREFIX)/share/man (some systems may use $(PREFIX)/man)
+ * CONFDIR - Normally $(PREFIX)/etc/reallysimplebackup
+ * CRONDIR - Normally $(PREFIX)/etc/cron.d
+ * BINDIR  - Normally $(PREFIX)/bin
+
+Note that if you change any of these, the example config may not work anymore.
+
+Licensing
+---------
+reallysimplebackup is published under the terms of the GNU GPL license version 2
+or later. See the source code for more information.
+

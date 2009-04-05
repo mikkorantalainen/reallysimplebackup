@@ -1,0 +1,36 @@
+#!/bin/bash
+# run rsync of the latest backup niced and ioniced to idle IO levels
+
+# config:
+source "/usr/local/etc/backup-config"
+
+TARGET=$(dirname "$0")
+TARGET="$TARGET/backup"
+
+# the script:
+
+echo "Syncing backup ..."
+echo "Source: \"$BACKUP_DIR/$ACTIVE_BACKUP\""
+echo "Target: \"$TARGET\""
+mkdir -p "$TARGET"
+#gksudo --description "Backup to usb media" -- nice ionice -c3 rsync --dry-run \
+#		--verbose --archive --recursive --human-readable \
+#		--hard-links --delete --one-file-system \
+#		"$BACKUP_DIR/$ACTIVE_BACKUP" "$TARGET"
+#
+gksudo --message "Enter password to syncronize backup to usb media" -- nice ionice -c3 rsync \
+		--verbose --archive --recursive --human-readable \
+		--hard-links --delete --one-file-system \
+		"$BACKUP_DIR/$ACTIVE_BACKUP" "$TARGET"
+
+gksudo --message "Enter password to update timestamp of usb media" -- touch "$TARGET"
+
+# revoke sudo permissions
+sudo -k
+
+echo ""
+echo "Backup disk usage after backup:"
+df -h "$TARGET"
+
+sleep 2
+
