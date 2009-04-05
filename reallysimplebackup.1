@@ -7,9 +7,10 @@ reallysimplebackup \- create and rotate backups in the system
 .RI [ option ]...
 .RI [ directory ]...
 .SH DESCRIPTION
-.B hardlink
-is a tool which replaces copies of a file with hardlinks, therefore saving
-space.
+.B reallysimplebackup
+is a collection of scripts to do a simple rotating backup
+of the whole system. Behind the curtains, the scripts use rsync, cp -al and
+hardlink. Scripts are written in bash and python.
 .SH OPTIONS
 .TP
 .B \-h or \-\-help

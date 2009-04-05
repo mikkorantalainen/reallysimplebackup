@@ -13,9 +13,9 @@ Architecture: all
 Depends: ${misc:Depends}, python (>= 2.5), hardlink (>= 0.1.1), rsync (>= 3.0.3)
 Replaces: backup
 Conflicts: backup
-Description: Hardlinks multiple copies of the same file
- Hardlink is a tool which detects multiple copies of the same file and replaces
- them with hardlinks.
- .
- The idea has been taken from http://code.google.com/p/hardlinkpy/, but the
- code has been written from scratch and licensed under the MIT license.
+Description: Create and rotate online backups and syncronize offline backup
+ Automatically syncronizes whole system to online backup, rotates the
+ backup, hardlinks duplicate files to each other and removes old revisions
+ of stored backups. Also contains a script to syncronize latest backup with
+ offline storage, such as external USB hard drive.
+
