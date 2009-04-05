@@ -18,7 +18,7 @@ mkdir -p "$TARGET"
 #		--hard-links --delete --one-file-system \
 #		"$BACKUP_DIR/$ACTIVE_BACKUP" "$TARGET"
 #
-gksudo --message "Enter password to syncronize backup to usb media" -- nice ionice -c3 rsync \
+gksudo --message "Enter password to synchronize backup to usb media" -- nice ionice -c3 rsync \
 		--verbose --archive --recursive --human-readable \
 		--hard-links --delete --one-file-system \
 		"$BACKUP_DIR/$ACTIVE_BACKUP" "$TARGET"
