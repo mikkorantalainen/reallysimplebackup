@@ -16,7 +16,8 @@ ulimit -S -m 500000 -t 600
 # TODO: improve hardlinking:
 # 	perhaps add "--ignore-time" flag to following to link more files together
 #	get last two latest directories and hardlink between those
-nice ionice -c3 hardlink --verbose --maximize --respect-name */
+#nice ionice -c3 hardlink --verbose --maximize --respect-name */
+echo "DEBUG: HARDLINK rotate step has been disabled to increase performance."
 echo ""
 echo "Backup disk usage after backup:"
 df -h "$BACKUP_DIR/."
