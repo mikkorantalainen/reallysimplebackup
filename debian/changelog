@@ -1,3 +1,9 @@
+reallysimplebackup (0.0.1ubuntu1) jaunty; urgency=low
+
+  * new release with automatic hardlink step disabled to increase performance
+
+ -- Mikko Rantalainen <mira@desktop.elisa-laajakaista.fi>  Thu, 09 Apr 2009 00:41:08 +0300
+
 reallysimplebackup (0.0.1) jaunty; urgency=low
 
   * Initial version
