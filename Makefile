@@ -29,8 +29,8 @@ clean:
 	rm -f *~
 
 deb:
-	debuild -i -E -us -uc -j2 --lintian-opts --pedantic -i -I -E
+	debuild -I -E -us -uc -j2 --lintian-opts --pedantic -i -I -E
 
 deb-sign:
-	debuild -i -E -j2 --lintian-opts --pedantic -i -I -E
+	debuild -I -E -j2 --lintian-opts --pedantic -i -I -E
 
