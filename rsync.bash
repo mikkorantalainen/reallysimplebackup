@@ -2,7 +2,7 @@
 # run rsync the whole system niced and ioniced to idle IO levels
 
 # config:
-source "/usr/local/etc/backup-config"
+source "/etc/reallysimplebackup/config"
 
 # the script:
 

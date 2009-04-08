@@ -5,10 +5,10 @@
 MAILTO=root
 
 # every 15 minutes, sync backup
-*/15 * * * *     root if [ -x /usr/local/bin/backup-rsync ]; then /usr/local/bin/backup-rsync; fi
+*/15 * * * *     root if [ -x /usr/bin/reallysimplebackup-rsync ]; then /usr/bin/reallysimplebackup-rsync; fi
 # every 6 hours, rotate backup
-5 */6 * * *     root if [ -x /usr/local/bin/backup-rotate ]; then /usr/local/bin/backup-rotate; fi
+5 */6 * * *     root if [ -x /usr/bin/reallysimplebackup-rotate ]; then /usr/bin/reallysimplebackup-rotate; fi
 
 # at every reboot, force backup-rsync
-@reboot root if [ -x /usr/local/bin/backup-rsync ]; then /usr/local/bin/backup-rsync after-reboot; fi
+@reboot root if [ -x /usr/bin/reallysimplebackup-rsync ]; then /usr/local/bin/reallysimplebackup-rsync after-reboot; fi
 

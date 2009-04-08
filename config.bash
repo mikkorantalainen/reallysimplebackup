@@ -14,6 +14,6 @@ BACKUP_NAME=$(date +%Y%m%dT%H%M%S)
 BACKUP_LOCK="auto.lock"
 
 # include / exclude config files
-INCLUDE_FILE="/usr/local/etc/backup-include"
-EXCLUDE_FILE="/usr/local/etc/backup-exclude"
+INCLUDE_FILE="/etc/reallysimplebackup/include"
+EXCLUDE_FILE="/etc/reallysimplebackup/exclude"
 

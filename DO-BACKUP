@@ -2,7 +2,7 @@
 # run rsync of the latest backup niced and ioniced to idle IO levels
 
 # config:
-source "/usr/local/etc/backup-config"
+source "/etc/reallysimplebackup/backup-config"
 
 TARGET=$(dirname "$0")
 TARGET="$TARGET/backup"
