@@ -2,7 +2,7 @@ reallysimplebackup (0.0.1ubuntu4) jaunty; urgency=low
 
   * Sort by timestamp instead of by entry name before hardlinking
 
- -- Mikko Rantalainen <mira@desktop.elisa-laajakaista.fi>  Sun, 31 May 2009 19:07:46 +0300
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sun, 31 May 2009 19:07:46 +0300
 
 reallysimplebackup (0.0.1ubuntu3) jaunty; urgency=low
 
