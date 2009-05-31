@@ -1,8 +1,15 @@
+reallysimplebackup (0.0.1ubuntu2) jaunty; urgency=low
+
+  * Fixed hardlinking to scan only 3 directories
+  * Fixed invalid path in crontab
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sun, 31 May 2009 14:32:20 +0300
+
 reallysimplebackup (0.0.1ubuntu1) jaunty; urgency=low
 
   * new release with automatic hardlink step disabled to increase performance
 
- -- Mikko Rantalainen <mira@desktop.elisa-laajakaista.fi>  Thu, 09 Apr 2009 00:41:08 +0300
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Thu, 09 Apr 2009 00:41:08 +0300
 
 reallysimplebackup (0.0.1) jaunty; urgency=low
 
