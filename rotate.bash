@@ -14,7 +14,7 @@ echo "Hardlinking duplicate files ..."
 # allow up to 0.5 GB of memory to be used for hardlinking
 #ulimit -S -m 500000 -t 600
 # get latest directories and hardlink between those
-nice ionice -c3 hardlink --verbose --maximize --respect-name $(ls -d -r */ | head -3)
+nice ionice -c3 hardlink --verbose --maximize --respect-name $(ls -d -c */ | head -3)
 
 echo ""
 echo "Backup disk usage after backup:"
