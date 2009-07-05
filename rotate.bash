@@ -2,7 +2,7 @@
 # run rsync niced and ioniced to idle IO levels
 
 # config:
-source "/etc/reallysimplebackup/config"
+source "/etc/reallysimplebackup/config" || exit 10
 
 # rotate backup
 cd "$BACKUP_DIR"

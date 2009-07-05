@@ -2,10 +2,15 @@
 # run rsync of the latest backup niced and ioniced to idle IO levels
 
 # config:
-source "/etc/reallysimplebackup/backup-config"
+source "/etc/reallysimplebackup/config" || exit 10
 
 TARGET=$(dirname "$0")
 TARGET="$TARGET/backup"
+
+if [ ! -d "$TARGET/$ACTIVE_BACKUP" ]; then
+	echo "Target directory '$TARGET/$ACTIVE_BACKUP' does not exist, aborting"
+	exit 9
+fi
 
 # the script:
 
@@ -32,5 +37,4 @@ echo ""
 echo "Backup disk usage after backup:"
 df -h "$TARGET"
 
-sleep 2
 

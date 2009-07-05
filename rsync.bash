@@ -2,7 +2,7 @@
 # run rsync the whole system niced and ioniced to idle IO levels
 
 # config:
-source "/etc/reallysimplebackup/config"
+source "/etc/reallysimplebackup/config" || exit 10
 
 if [ "$ACTIVE_BACKUP" = "" ]; then
 	echo "Failed to source sensible ACTIVE_BACKUP variable, aborting."
