@@ -4,6 +4,11 @@
 # config:
 source "/etc/reallysimplebackup/config"
 
+if [ "$ACTIVE_BACKUP" = "" ]; then
+	echo "Failed to source sensible ACTIVE_BACKUP variable, aborting."
+	exit 10
+fi
+
 # the script:
 
 if [ "$1" = "after-reboot" ]; then
@@ -16,6 +21,11 @@ fi
 if [ -f "$BACKUP_DIR/$BACKUP_LOCK" ]; then
 	echo "File '$BACKUP_DIR/$BACKUP_LOCK' exists, aborting."
 	exit 2
+fi
+
+if [ ! -d "$BACKUP_DIR/$ACTIVE_BACKUP" ]; then
+	echo "Target directory '$BACKUP_DIR/$ACTIVE_BACKUP' does not exist, aborting."
+	exit 3
 fi
 
 touch "$BACKUP_DIR/$BACKUP_LOCK"
@@ -32,6 +42,15 @@ touch "$BACKUP_DIR/$ACTIVE_BACKUP"
 echo ""
 echo "Backup disk usage after backup:"
 df -h "$BACKUP_DIR/."
+
+FRESH_ROTATES=$(cd "$BACKUP_DIR"; find . -maxdepth 1 -type d -mmin -360 -a -not -name "." -a -not -name "$ACTIVE_BACKUP")
+
+if [ "$FRESH_ROTATES" = "" ]; then
+	echo ""
+	echo "Latest rotated backup is old, latest backup will be rotated."
+	echo ""
+	/usr/bin/reallysimplebackup-rotate
+fi
 
 # remove lock
 rm --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK"
