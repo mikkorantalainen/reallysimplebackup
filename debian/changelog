@@ -1,3 +1,9 @@
+reallysimplebackup (0.0.1ubuntu5) karmic; urgency=low
+
+  * Fixed backup rotation
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sun, 05 Jul 2009 17:14:13 +0300
+
 reallysimplebackup (0.0.1ubuntu4) jaunty; urgency=low
 
   * Sort by timestamp instead of by entry name before hardlinking
