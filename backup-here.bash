@@ -7,10 +7,22 @@ source "/etc/reallysimplebackup/config" || exit 10
 TARGET=$(dirname "$0")
 TARGET="$TARGET/backup"
 
+if [ "$1" = "--init" ]; then
+	echo "Creating directory '$TARGET/$ACTIVE_BACKUP'"
+	mkdir -p "$TARGET/$ACTIVE_BACKUP"
+	echo "Re-run this script without the --init parameter to create backup"
+	exit 0
+fi
+
 if [ ! -d "$TARGET/$ACTIVE_BACKUP" ]; then
 	echo "Target directory '$TARGET/$ACTIVE_BACKUP' does not exist, aborting"
 	exit 9
 fi
+
+echo "TESTING - ABORTING"
+exit # TESTING ONLY
+
+
 
 # the script:
 
