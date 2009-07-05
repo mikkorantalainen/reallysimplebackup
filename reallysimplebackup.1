@@ -26,6 +26,16 @@ takes no arguments.
 .B reallysimplebackup-rotate
 takes no arguments.
 
+.B reallysimplebackup-backup-here
+Creates a backup of latest backup under the directory this script has been linked to.
+Notice that executing this from its default location does not make sense and it will
+display an error message along the lines
+"Target directory '.../backup/latest' does not exist, aborting"
+
+.B \-\-init
+create target directory for backup of a backup
+
+
 .SH AUTHOR
 The program reallysimplebackup and this manpage have been written by Mikko Rantalainen,
 and are licensed under the GNU GPL license.

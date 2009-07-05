@@ -15,6 +15,7 @@ all:
 install:
 	install -D -o root -g root -m 755 rotate.bash $(BINDIR)/reallysimplebackup-rotate
 	install -D -o root -g root -m 755 rsync.bash $(BINDIR)/reallysimplebackup-rsync
+	install -D -o root -g root -m 755 backup-here.bash $(BINDIR)/reallysimplebackup-backup-here
 
 	install -D -o root -g root -m 644 config.bash $(CONFDIR)/config
 	install -D -o root -g root -m 644 rsync-include $(CONFDIR)/include
