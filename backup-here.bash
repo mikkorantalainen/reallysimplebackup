@@ -16,12 +16,9 @@ fi
 
 if [ ! -d "$TARGET/$ACTIVE_BACKUP" ]; then
 	echo "Target directory '$TARGET/$ACTIVE_BACKUP' does not exist, aborting"
+	echo "(Perhaps you want to try --init flag?)"
 	exit 9
 fi
-
-echo "TESTING - ABORTING"
-exit # TESTING ONLY
-
 
 
 # the script:
