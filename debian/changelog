@@ -1,3 +1,16 @@
+reallysimplebackup (0.0.1ubuntu7) karmic; urgency=low
+
+  * Improved safety (abort immediately if config file fails to load)
+  * Log output from cron scripts to /var/log/reallysimplebackup.log
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Thu, 13 Aug 2009 20:52:09 +0300
+
+reallysimplebackup (0.0.1ubuntu6) karmic; urgency=low
+
+  * Added reallysimplebackup-backup-here support script
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sun, 05 Jul 2009 17:44:33 +0300
+
 reallysimplebackup (0.0.1ubuntu5) karmic; urgency=low
 
   * Fixed backup rotation
