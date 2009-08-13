@@ -1,6 +1,8 @@
 #!/bin/bash
 # run rsync the whole system niced and ioniced to idle IO levels
 
+date +"%Y-%m-%d %H:%M:%S: Starting backup synchronization ..."
+
 # config:
 source "/etc/reallysimplebackup/config" || exit 10
 
@@ -54,4 +56,6 @@ fi
 
 # remove lock
 rm --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK"
+
+date +"%Y-%m-%d %H:%M:%S: Done backup synchronization."
 

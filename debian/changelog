@@ -1,3 +1,10 @@
+reallysimplebackup (0.0.1ubuntu8) karmic; urgency=low
+
+  * append to log instead of overwriting the log
+  * output date and time before and after synchronization
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Thu, 13 Aug 2009 22:09:01 +0300
+
 reallysimplebackup (0.0.1ubuntu7) karmic; urgency=low
 
   * Improved safety (abort immediately if config file fails to load)

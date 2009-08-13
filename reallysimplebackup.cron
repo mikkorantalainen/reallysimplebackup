@@ -5,8 +5,8 @@
 MAILTO=root
 
 # every 15 minutes, sync backup (will automatically rotate backups as needed)
-*/15 * * * *     root if [ -x /usr/bin/reallysimplebackup-rsync ]; then /usr/bin/reallysimplebackup-rsync > /var/log/reallysimplebackup.log 2>&1; fi
+*/15 * * * *     root if [ -x /usr/bin/reallysimplebackup-rsync ]; then /usr/bin/reallysimplebackup-rsync >> /var/log/reallysimplebackup.log 2>&1; fi
 
 # at every reboot, force backup-rsync
-@reboot root if [ -x /usr/bin/reallysimplebackup-rsync ]; then /usr/bin/reallysimplebackup-rsync after-reboot > /var/log/reallysimplebackup.log 2>&1; fi
+@reboot root if [ -x /usr/bin/reallysimplebackup-rsync ]; then /usr/bin/reallysimplebackup-rsync after-reboot >> /var/log/reallysimplebackup.log 2>&1; fi
 
