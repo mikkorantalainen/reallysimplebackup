@@ -22,5 +22,5 @@ df -h "$BACKUP_DIR/."
 
 echo ""
 echo "Removing deprecated backups ..."
-#(reallysimplebackup-list-old-print0 | xargs -0 --no-run-if-empty rm --one-file-system -rf --) 2>&1
+(reallysimplebackup-list-old-print0 | xargs -0 --no-run-if-empty rm --one-file-system -rf --) 2>&1
 

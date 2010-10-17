@@ -1,3 +1,9 @@
+reallysimplebackup (0.0.1ubuntu10) karmic; urgency=low
+
+  * activated cleanup routine to remove redundant backups
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Mon, 05 Oct 2009 14:58:34 +0300
+
 reallysimplebackup (0.0.1ubuntu9) karmic; urgency=low
 
   * added experimental cleanup routine to remove redundant backups
