@@ -3,14 +3,14 @@ Section: utils
 Priority: optional
 Maintainer: Mikko Rantalainen <mikko.rantalainen@iki.fi>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.8.0
+Standards-Version: 3.8.3
 Homepage: 
 Vcs-Git: 
 Vcs-Browser: 
 
 Package: reallysimplebackup
 Architecture: all
-Depends: ${misc:Depends}, python (>= 2.5), hardlink (>= 0.1.1), rsync (>= 3.0.3)
+Depends: ${misc:Depends}, python (>= 2.5), hardlink (>= 0.1.1), rsync (>= 3.0.3), util-linux (>= 2.14)
 Replaces: backup
 Conflicts: backup
 Description: Create and rotate online backups and synchronize offline backup
