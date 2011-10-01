@@ -35,7 +35,7 @@ touch "$BACKUP_DIR/$BACKUP_LOCK"
 echo "Syncing files to backup directory ..."
 nice ionice -c3 rsync \
 		--verbose --archive --recursive --human-readable \
-		--hard-links --delete --one-file-system \
+		--hard-links --delete \
 		--include-from="$INCLUDE_FILE" \
 		--exclude-from="$EXCLUDE_FILE" \
 		/ "$BACKUP_DIR/$ACTIVE_BACKUP"

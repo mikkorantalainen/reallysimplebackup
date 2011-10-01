@@ -1,4 +1,12 @@
+# exclude self
+/backups
+
+# List directories using ecryptfs here because otherwise mounted content will be copied as-is into backup without encryption
+- /home/suoja/**
+- /home/*/Private/**
+
 # list of files and directories to exclude from backup
+- /home/*/.compiz/session/
 - /home/**/cache/
 - /home/**/Cache/
 - /home/**/.cache/
@@ -10,6 +18,7 @@
 - /**/.local/share/Trash/
 - /home/*/.dbus/*session/
 - /home/*/.Xauthority
+- /**/.local/share/Trash/
 - /**/.Trash-[0-9]/
 - /**/.Trash-[0-9][0-9]/
 - /**/.Trash-[0-9][0-9][0-9]/
@@ -44,3 +53,13 @@
 - /sys/
 - /usr/
 
+# do not ever try to copy special stuff
+- /dev/
+- /proc/
+- /sys/
+- /tmp/
+- /var/cache/
+- /var/run/
+- /var/tmp/
+- /var/lock/
+- /media/

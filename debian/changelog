@@ -1,3 +1,9 @@
+reallysimplebackup (0.0.1ubuntu11) lucid; urgency=low
+
+  * rsync: stop using "--one-file-system" flag
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sat, 01 Oct 2011 15:35:09 +0300
+
 reallysimplebackup (0.0.1ubuntu10) karmic; urgency=low
 
   * activated cleanup routine to remove redundant backups
