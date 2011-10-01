@@ -3,7 +3,7 @@ Section: utils
 Priority: optional
 Maintainer: Mikko Rantalainen <mikko.rantalainen@iki.fi>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.8.3
+Standards-Version: 3.8.4
 Homepage: 
 Vcs-Git: 
 Vcs-Browser: 
