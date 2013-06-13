@@ -38,3 +38,6 @@ deb:
 deb-sign:
 	debuild -I -E -j2 --lintian-opts --pedantic -i -I -E
 
+release:
+	debchange --release
+
