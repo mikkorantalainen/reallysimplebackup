@@ -1,8 +1,9 @@
 reallysimplebackup (0.0.1ubuntu11) lucid; urgency=low
 
   * rsync: stop using "--one-file-system" flag
+  * update debian scripts
 
- -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sat, 01 Oct 2011 15:35:09 +0300
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Thu, 13 Jun 2013 21:34:51 +0300
 
 reallysimplebackup (0.0.1ubuntu10) karmic; urgency=low
 
