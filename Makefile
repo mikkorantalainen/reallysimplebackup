@@ -10,7 +10,9 @@ CONFDIR := $(DESTDIR)/$(ETCDIR)/reallysimplebackup
 CRONDIR := $(DESTDIR)/$(ETCDIR)/cron.d
 MANDIR  := $(DESTDIR)/$(MANDIR)
 
-all:
+default:
+	@echo "Usage: make <target>, possible targets:"
+	@egrep '^[-a-z]+:' Makefile | sed 's/^/- /; s/://' || true
 
 install:
 	install -D -o root -g root -m 755 rotate.bash $(BINDIR)/reallysimplebackup-rotate
@@ -32,11 +34,14 @@ install:
 clean:
 	rm -f *~
 
+ppa-deb:
+	debuild -i -S -j`getconf _NPROCESSORS_ONLN` --lintian-opts --pedantic
+
 deb:
-	debuild -I -E -us -uc -j2 --lintian-opts --pedantic -i -I -E
+	debuild -I -E -us -uc -j`getconf _NPROCESSORS_ONLN` --lintian-opts --pedantic -i -I -E
 
 deb-sign:
-	debuild -I -E -j2 --lintian-opts --pedantic -i -I -E
+	debuild -I -E -j`getconf _NPROCESSORS_ONLN` --lintian-opts --pedantic -i -I -E
 
 release:
 	debchange --release
