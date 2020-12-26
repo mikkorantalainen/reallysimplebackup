@@ -1,6 +1,9 @@
 #!/bin/bash
 # run rsync the whole system niced and ioniced to idle IO levels
 #
+# Note that effective ionice requires using cfq or bfq scheduler in Linux
+# because other disc schedulers do not implement IO levels.
+#
 
 SLEEP_AFTER_REBOOT=120s
 
@@ -25,10 +28,10 @@ if [ ! -d "$BACKUP_DIR/$ACTIVE_BACKUP" ]; then
 fi
 
 if [ "$1" = "after-reboot" ]; then
-	touch "$BACKUP_DIR/$BACKUP_LOCK"
+	touch "$BACKUP_DIR/$BACKUP_LOCK" || exit 2
 	echo "Sleeping for $SLEEP_AFTER_REBOOT after reboot before starting backup..."
 	sleep "$SLEEP_AFTER_REBOOT"
-	rm  --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK"
+	rm  --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK" || exit 3
 fi
 
 # if there's a lock, abort now
@@ -37,7 +40,7 @@ if [ -f "$BACKUP_DIR/$BACKUP_LOCK" ]; then
 	exit 2
 fi
 
-touch "$BACKUP_DIR/$BACKUP_LOCK"
+touch "$BACKUP_DIR/$BACKUP_LOCK" || exit 4
 
 perfrun()
 {
