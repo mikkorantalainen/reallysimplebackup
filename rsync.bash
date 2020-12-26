@@ -33,12 +33,12 @@ fi
 touch "$BACKUP_DIR/$BACKUP_LOCK"
 
 echo "Syncing files to backup directory ..."
-nice ionice -c3 rsync \
+nice ionice -c3 reallysimplebackup-with-private-binds -- 'rsync \
 		--verbose --archive --recursive --human-readable \
 		--hard-links --delete \
 		--include-from="$INCLUDE_FILE" \
 		--exclude-from="$EXCLUDE_FILE" \
-		/ "$BACKUP_DIR/$ACTIVE_BACKUP"
+		* "$BACKUP_DIR/$ACTIVE_BACKUP/."'
 touch "$BACKUP_DIR/$ACTIVE_BACKUP"
 
 echo ""
