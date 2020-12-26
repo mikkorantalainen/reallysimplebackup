@@ -1,5 +1,8 @@
 #!/bin/bash
 # run rsync the whole system niced and ioniced to idle IO levels
+#
+
+SLEEP_AFTER_REBOOT=120s
 
 date +"%Y-%m-%d %H:%M:%S: Starting backup synchronization ..."
 
@@ -16,23 +19,22 @@ if [ "$ACTIVE_BACKUP" = "" ]; then
 	exit 10
 fi
 
-# the script:
+if [ ! -d "$BACKUP_DIR/$ACTIVE_BACKUP" ]; then
+	echo "Target directory '$BACKUP_DIR/$ACTIVE_BACKUP' does not exist, aborting."
+	exit 3
+fi
 
 if [ "$1" = "after-reboot" ]; then
-	rm  --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK" 2>/dev/null
-	echo "Sleeping for 10 seconds after reboot before starting backup..."
-	sleep 10
+	touch "$BACKUP_DIR/$BACKUP_LOCK"
+	echo "Sleeping for $SLEEP_AFTER_REBOOT after reboot before starting backup..."
+	sleep "$SLEEP_AFTER_REBOOT"
+	rm  --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK"
 fi
 
 # if there's a lock, abort now
 if [ -f "$BACKUP_DIR/$BACKUP_LOCK" ]; then
 	echo "File '$BACKUP_DIR/$BACKUP_LOCK' exists, aborting."
 	exit 2
-fi
-
-if [ ! -d "$BACKUP_DIR/$ACTIVE_BACKUP" ]; then
-	echo "Target directory '$BACKUP_DIR/$ACTIVE_BACKUP' does not exist, aborting."
-	exit 3
 fi
 
 touch "$BACKUP_DIR/$BACKUP_LOCK"
