@@ -1,5 +1,5 @@
 # exclude self
-/backups
+- /backups
 
 # List directories using ecryptfs here because otherwise mounted content will be copied as-is into backup without encryption
 - /home/suoja/**
