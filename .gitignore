@@ -1,1 +1,5 @@
 debian/reallysimplebackup/
+debian/.debhelper/generated/
+debian/reallysimplebackup.debhelper.log
+debian/reallysimplebackup.substvars
+debian/files
