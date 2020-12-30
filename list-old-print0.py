@@ -21,7 +21,7 @@ DIRNAME_MAX_ERROR_MINUTES = 75 # one hour for daylight saving time plus 15 minut
 MIN_REVISION_DELTA_MINUTES = 1 # the minimum difference in minutes between two saved revisions (initial value)
 OUTPUT_NAME_SEPARATOR = "\x00" # reasonable choices are "\x00" and "\n"
  
-# List all direcotry contents of current directory (perhaps we someday will support sys.argv[1] here?)
+# List all directory contents of current directory (perhaps we someday will support sys.argv[1] here?)
 listing = os.listdir(".")
 # TODO: figure out if the listing is safe if the current working directory is not the parent directory 
  
