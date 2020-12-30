@@ -1,0 +1,13 @@
+/var/log/reallysimplebackup.log
+{
+  dateext
+  dateyesterday
+  delaycompress
+  monthly
+  rotate 36
+  maxsize 50M
+  compress
+  missingok
+  notifempty
+  nomail
+}

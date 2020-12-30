@@ -21,6 +21,7 @@ install:
 	install -D -o root -g root -m 644 config.bash $(CONFDIR)/config
 	install -D -o root -g root -m 644 rsync-include $(CONFDIR)/include
 	install -D -o root -g root -m 644 rsync-exclude $(CONFDIR)/exclude
+	install -D -o root -g root -m 644 logrotate $(CONFDIR)/logrotate.d/reallysimplebackup
 
 	install -D -o root -g root -m 644 reallysimplebackup.cron $(CRONDIR)/reallysimplebackup
 	install -D -o root -g root -m 644 reallysimplebackup.1  $(MANDIR)/man1/reallysimplebackup.1
