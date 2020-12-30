@@ -16,7 +16,9 @@ echo "Hardlinking duplicate files ..."
 # allow up to 0.5 GB of memory to be used for hardlinking
 #ulimit -S -m 500000 -t 600
 # get latest directories and hardlink between those
-nice ionice -c3 hardlink --verbose --maximize --respect-name $(ls -d -c */ | head -3)
+# ext4 is able to store files smaller than 160 bytes inline so skip small files
+# https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Inline_Data
+nice ionice -c3 hardlink --verbose --maximize --minimum-size=161 --respect-name $(ls -d -c */ | head -3)
 
 echo ""
 echo "Backup disk usage after backup:"
