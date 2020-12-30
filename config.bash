@@ -7,6 +7,7 @@ BACKUP_DIR="/backups/auto"
 ACTIVE_BACKUP="latest"
 
 # name of the copy of latest backup after backup-rotate
+# NOTE! should not be changed without also modifying /usr/bin/reallysimplebackup-list-old-print0
 BACKUP_NAME=$(date +%Y%m%dT%H%M%S)
 
 
