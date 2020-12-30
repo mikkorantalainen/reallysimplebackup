@@ -5,12 +5,12 @@
 source "/etc/reallysimplebackup/config" || exit 10
 
 # rotate backup
-cd "$BACKUP_DIR"
+cd "$BACKUP_DIR" || exit 1
 echo "Rotating backup ..."
 echo "Copying '$ACTIVE_BACKUP' to '$BACKUP_NAME.tmp' ..."
-nice ionice -c3 cp -al "$ACTIVE_BACKUP" "$BACKUP_NAME.tmp"
+nice ionice -c3 cp -al "$ACTIVE_BACKUP" "$BACKUP_NAME.tmp" || exit 2
 echo "Completed copying, renaming to final name: $BACKUP_NAME"
-mv "$BACKUP_NAME.tmp" "$BACKUP_NAME"
+mv "$BACKUP_NAME.tmp" "$BACKUP_NAME" || exit 3
 
 echo "Hardlinking duplicate files ..."
 # allow up to 0.5 GB of memory to be used for hardlinking
