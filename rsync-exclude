@@ -1,6 +1,9 @@
 # exclude self
 - /backups
 
+- /RESERVESPACE*
+- /swapfile*
+
 # List directories using ecryptfs here because otherwise mounted content will be copied as-is into backup without encryption
 - /home/suoja/**
 - /home/*/Private/**
@@ -37,7 +40,7 @@
 - /tmp/
 - /var/cache/
 - /var/run/
-- /var/
+#- /var/
 
 # optionally, excluded files provided by OS
 - /bin/
@@ -63,3 +66,4 @@
 - /var/tmp/
 - /var/lock/
 - /media/
+
