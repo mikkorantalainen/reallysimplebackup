@@ -13,6 +13,9 @@ BACKUP_NAME=$(date +%Y%m%dT%H%M%S)
 # name of the lock file
 BACKUP_LOCK="auto.lock"
 
+# name of the rotate timestamp file
+BACKUP_ROTATE_TIMESTAMP="rotate.stamp"
+
 # include / exclude config files
 INCLUDE_FILE="/etc/reallysimplebackup/include"
 EXCLUDE_FILE="/etc/reallysimplebackup/exclude"

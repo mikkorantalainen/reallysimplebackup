@@ -76,13 +76,17 @@ echo ""
 echo "Backup disk usage after backup:"
 df -h "$BACKUP_DIR/."
 
-FRESH_ROTATES=$(cd "$BACKUP_DIR"; find . -maxdepth 1 -type d -mmin -360 -a -not -name "." -a -not -name "$ACTIVE_BACKUP")
+FRESH_TIMESTAMP=$(find "$BACKUP_DIR/$BACKUP_ROTATE_TIMESTAMP" -mmin -1440)
 
-if [ "$FRESH_ROTATES" = "" ]; then
+if test -z "$FRESH_TIMESTAMP"; then
+	touch "$BACKUP_ROTATE_TIMESTAMP"
 	echo ""
-	echo "Latest rotated backup is old, latest backup will be rotated."
+	echo "Last rotate was over 24h ago, rotating backups..."
 	echo ""
 	perfrun /usr/bin/reallysimplebackup-rotate || echo "Warning: rotate failed."
+	touch "$BACKUP_ROTATE_TIMESTAMP"
+else
+	echo "Last rotate was done less than 24h ago, skipping rotate."
 fi
 
 # remove lock
