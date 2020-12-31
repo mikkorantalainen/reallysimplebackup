@@ -42,6 +42,8 @@ fi
 
 touch "$BACKUP_DIR/$BACKUP_LOCK" || exit 4
 
+(cd "$BACKUP_DIR" && find . -maxdepth 1 -regextype egrep -regex "^[.]/[0-9]{8}T[0-9]{6}.tmp" -exec echo Would run rm -rf --one-file-system {} +)
+
 perfrun()
 {
 	/usr/bin/time -f "Elapsed: %E Major faults: %F I/O: %I MEM: %MK CPU: %P" "$@"
