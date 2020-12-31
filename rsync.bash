@@ -43,7 +43,7 @@ nice ionice -c3 rsync \
 		--hard-links --delete \
 		--include-from="$INCLUDE_FILE" \
 		--exclude-from="$EXCLUDE_FILE" \
-		/ "$BACKUP_DIR/$ACTIVE_BACKUP"
+		/. "$BACKUP_DIR/$ACTIVE_BACKUP/."
 touch "$BACKUP_DIR/$ACTIVE_BACKUP"
 
 echo ""
