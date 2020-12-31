@@ -1,3 +1,28 @@
+reallysimplebackup (0.0.1ubuntu12) bionic; urgency=medium
+
+  * Documentation: fix typo in comment
+  * Use "logrotate" the automatically rotate our log files
+  * Config: fix typo in default "exclude" file
+  * Config: do not exclude /var/ by default, exclude swap and reserve
+  * Config: blacklist /run/ by default
+  * Config: add a comment saying that BACKUP_NAME shouldn't usually be modified
+  * Sync: add sanity check that BACKUP_DIR and ACTIVE_BACKUP are non-empty
+  * Sync: make sure that rsync never creates a new root directory
+  * Sync: emit one line statistics for rsync and rotate
+  * Sync: add support for passing extra flags to rsync, default to --dry-run
+  * Sync: improve locking after reboot
+  * Sync: abort on meaningful error, improve documentation
+  * Sync: improve diagnostics if rsync fails
+  * Sync: emit an extra warning if rotate fails
+  * Rotate: create rotated copy using temporary directory name during copy
+  * Rotate: automatically abort rotate if some step during it fails
+  * Rotate: add timestamp file to keep track of last rotate
+  * Rotate: do not bother hardlinking files with 160 bytes or less
+  * Rotate: hardlink duplicate files before rotate
+  * Sync: find partial rotate directories (dry run only)
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Wed, 30 Dec 2020 11:56:23 +0200
+
 reallysimplebackup (0.0.1ubuntu11) lucid; urgency=low
 
   * rsync: stop using "--one-file-system" flag
