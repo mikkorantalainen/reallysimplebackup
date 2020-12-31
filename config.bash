@@ -10,11 +10,13 @@ ACTIVE_BACKUP="latest"
 # NOTE! should not be changed without also modifying /usr/bin/reallysimplebackup-list-old-print0
 BACKUP_NAME=$(date +%Y%m%dT%H%M%S)
 
-
 # name of the lock file
 BACKUP_LOCK="auto.lock"
 
 # include / exclude config files
 INCLUDE_FILE="/etc/reallysimplebackup/include"
 EXCLUDE_FILE="/etc/reallysimplebackup/exclude"
+
+# additional flags to pass to rsync
+RSYNC_EXTRA_FLAGS="--dry-run"
 
