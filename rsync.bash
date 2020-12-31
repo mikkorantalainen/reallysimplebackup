@@ -6,6 +6,11 @@ date +"%Y-%m-%d %H:%M:%S: Starting backup synchronization ..."
 # config:
 source "/etc/reallysimplebackup/config" || exit 10
 
+if test -z "$BACKUP_DIR" -o -z "$ACTIVE_BACKUP"; then
+	echo "Error: config values BACKUP_DIR and ACTIVE_BACKUP must be non-empty strings."
+	exit 1
+fi
+
 if [ "$ACTIVE_BACKUP" = "" ]; then
 	echo "Failed to source sensible ACTIVE_BACKUP variable, aborting."
 	exit 10
