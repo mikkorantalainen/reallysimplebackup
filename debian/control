@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/mikkorantalainen/reallysimplebackup
 
 Package: reallysimplebackup
 Architecture: all
-Depends: ${misc:Depends}, python (>= 2.5), hardlink (>= 0.1.1), rsync (>= 3.0.3), util-linux (>= 2.14), logrotate
+Depends: ${misc:Depends}, python (>= 2.5), hardlink (>= 0.1.1), rsync (>= 3.0.3), util-linux (>= 2.14), logrotate, nocache
 Description: Create and rotate online backups and synchronize offline backup
  Automatically synchronizes whole system to online backup, rotates the
  backup, hardlinks duplicate files to each other and removes old revisions
