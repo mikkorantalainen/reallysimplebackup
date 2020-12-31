@@ -63,6 +63,7 @@
 - /tmp/
 - /var/cache/
 - /var/run/
+- /run/
 - /var/tmp/
 - /var/lock/
 - /media/
