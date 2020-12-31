@@ -37,8 +37,13 @@ fi
 
 touch "$BACKUP_DIR/$BACKUP_LOCK"
 
+perfrun()
+{
+	/usr/bin/time -f "Elapsed: %E Major faults: %F I/O: %I MEM: %MK CPU: %P" "$@"
+}
+
 echo "Syncing files to backup directory ..."
-nice ionice -c3 rsync \
+perfrun nice ionice -c3 rsync \
 		--verbose --archive --recursive --human-readable \
 		--hard-links --delete \
 		--include-from="$INCLUDE_FILE" \
@@ -56,7 +61,7 @@ if [ "$FRESH_ROTATES" = "" ]; then
 	echo ""
 	echo "Latest rotated backup is old, latest backup will be rotated."
 	echo ""
-	/usr/bin/reallysimplebackup-rotate
+	perfrun /usr/bin/reallysimplebackup-rotate
 fi
 
 # remove lock
