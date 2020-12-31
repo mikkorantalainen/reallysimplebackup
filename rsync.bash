@@ -82,7 +82,7 @@ if [ "$FRESH_ROTATES" = "" ]; then
 	echo ""
 	echo "Latest rotated backup is old, latest backup will be rotated."
 	echo ""
-	perfrun /usr/bin/reallysimplebackup-rotate
+	perfrun /usr/bin/reallysimplebackup-rotate || echo "Warning: rotate failed."
 fi
 
 # remove lock
