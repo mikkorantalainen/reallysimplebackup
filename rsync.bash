@@ -54,7 +54,23 @@ perfrun nice ionice -c3 rsync $RSYNC_EXTRA_FLAGS \
 		--include-from="$INCLUDE_FILE" \
 		--exclude-from="$EXCLUDE_FILE" \
 		/. "$BACKUP_DIR/$ACTIVE_BACKUP/."
+STATUS=$?
 touch "$BACKUP_DIR/$ACTIVE_BACKUP"
+
+case "$STATUS" in
+	0)
+		echo "Sync completed successfully."
+		;;
+	24)
+		echo "Sync completed successfully ()"
+		;;
+	*)
+		echo "Sync failed, status=$STATUS (man rsync). Aborting..."
+		# remove lock
+		rm --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK"
+		exit 66
+		;;
+esac
 
 echo ""
 echo "Backup disk usage after backup:"
