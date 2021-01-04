@@ -20,6 +20,6 @@ BACKUP_ROTATE_TIMESTAMP="rotate.stamp"
 INCLUDE_FILE="/etc/reallysimplebackup/include"
 EXCLUDE_FILE="/etc/reallysimplebackup/exclude"
 
-# additional flags to pass to rsync
-RSYNC_EXTRA_FLAGS="--dry-run"
+# additional flags to pass to rsync (e.g. "--dry-run")
+RSYNC_EXTRA_FLAGS=""
 
