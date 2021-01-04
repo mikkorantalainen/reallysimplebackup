@@ -14,7 +14,7 @@ echo "Hardlinking duplicate files ..."
 # get latest directories and hardlink between those
 # ext4 is able to store files smaller than 160 bytes inline so skip small files
 # https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Inline_Data
-nice ionice -c3 hardlink --verbose --maximize --minimum-size=161 --respect-name $(ls -d -c */ | head -2)
+nice ionice -c3 hardlink --verbose --maximize --minimum-size=161 --respect-name $(ls -d -t */ | head -2)
 
 echo "Rotating backup ..."
 echo "Copying '$ACTIVE_BACKUP' to '$BACKUP_NAME.tmp' ..."
