@@ -82,12 +82,12 @@ df -h "$BACKUP_DIR/."
 FRESH_TIMESTAMP=$(find "$BACKUP_DIR/$BACKUP_ROTATE_TIMESTAMP" -mmin -1440)
 
 if test -z "$FRESH_TIMESTAMP"; then
-	touch "$BACKUP_ROTATE_TIMESTAMP"
+	touch "$BACKUP_DIR/$BACKUP_ROTATE_TIMESTAMP"
 	echo ""
-	echo "Last rotate was over 24h ago, rotating backups..."
+	echo "Rotating backups..."
 	echo ""
 	perfrun /usr/bin/reallysimplebackup-rotate || echo "Warning: rotate failed."
-	touch "$BACKUP_ROTATE_TIMESTAMP"
+	touch "$BACKUP_DIR/$BACKUP_ROTATE_TIMESTAMP"
 else
 	echo "Last rotate was done less than 24h ago, skipping rotate."
 fi
