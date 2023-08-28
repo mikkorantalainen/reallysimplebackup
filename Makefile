@@ -26,11 +26,11 @@ install:
 	install -D -o root -g root -m 644 logrotate $(ETCDIR)/logrotate.d/reallysimplebackup
 
 	install -D -o root -g root -m 644 reallysimplebackup.cron $(CRONDIR)/reallysimplebackup
-	install -D -o root -g root -m 644 reallysimplebackup.1  $(MANDIR)/man1/reallysimplebackup.1
-	ln -s reallysimplebackup.1 $(MANDIR)/man1/reallysimplebackup-rsync.1
-	ln -s reallysimplebackup.1 $(MANDIR)/man1/reallysimplebackup-rotate.1
-	ln -s reallysimplebackup.1 $(MANDIR)/man1/reallysimplebackup-backup-here.1
-	ln -s reallysimplebackup.1 $(MANDIR)/man1/reallysimplebackup-list-old-print0.1
+	install -D -o root -g root -m 644 reallysimplebackup.1  $(MANDIR)/man1/reallysimplebackup-rsync.1
+	gzip -9n $(MANDIR)/man1/reallysimplebackup-rsync.1
+	ln -s reallysimplebackup.1.gz $(MANDIR)/man1/reallysimplebackup-rotate.1.gz
+	ln -s reallysimplebackup.1.gz $(MANDIR)/man1/reallysimplebackup-backup-here.1.gz
+	ln -s reallysimplebackup.1.gz $(MANDIR)/man1/reallysimplebackup-list-old-print0.1.gz
 
 clean:
 	rm -f *~
