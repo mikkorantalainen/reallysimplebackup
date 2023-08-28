@@ -4,6 +4,7 @@ BINDIR  ?= $(PREFIX)/bin
 ETCDIR  ?= etc
 LIBDIR  ?= lib
 MANDIR  ?= $(PREFIX)/share/man
+SHAREDIR ?= $(PREFIX)/share
 
 # Complete the path names
 BINDIR  := $(DESTDIR)/$(BINDIR)
@@ -13,6 +14,7 @@ CRONDIR := $(DESTDIR)/$(ETCDIR)/cron.d
 MANDIR  := $(DESTDIR)/$(MANDIR)
 # Note that ETCDIR is used by other paths above, it must be overwritten last:
 ETCDIR  := $(DESTDIR)/$(ETCDIR)
+SHAREDIR := $(DESTDIR)/$(SHAREDIR)
 
 all:
 
@@ -37,6 +39,9 @@ install:
 	install -D -o root -g root -m 644 reallysimplebackup-rsync.service $(LIBDIR)/systemd/system/reallysimplebackup-rsync.service
 	install -D -o root -g root -m 644 reallysimplebackup-cleanup-lockfiles.service $(LIBDIR)/systemd/system/reallysimplebackup-cleanup-lockfiles.service
 	install -D -o root -g root -m 644 reallysimplebackup-rsync.timer $(LIBDIR)/systemd/system/reallysimplebackup-rsync.timer
+
+	install -D -o root -g root -m 644 lintian.overrides $(SHAREDIR)/lintian/overrides/reallysimplebackup
+
 
 clean:
 	rm -f *~

@@ -1,0 +1,3 @@
+# We only support systemd and we have dependency for systemd but lintian still
+# complains about not supporting systems without systemd, ignore it:
+package-supports-alternative-init-but-no-init.d-script
