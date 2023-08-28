@@ -24,3 +24,14 @@ Licensing
 reallysimplebackup is published under the terms of the GNU GPL license version 2
 or later. See the source code for more information.
 
+Additional notes
+----------------
+
+This package doesn't specifically store list of installed packages. A good solution for that would be to periodically run
+
+    aptitude search -F "%p" '~i !~M'
+
+and store the output. That will emit list of packages that are not installed as automatic dependency. Installing this list of packages should result in system
+that has all the same software.
+
+See https://www.debian.org/doc/manuals/aptitude/ch02s05s01.en.html for possible details to log about packages.
