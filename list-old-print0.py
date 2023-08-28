@@ -72,6 +72,9 @@ for name in listing:
 			# update book keeping
 			previous_kept_datetime = stat_date;
 			min_delta_to_previous *= 2; # double the minimum time for the next revision
+			# limit maximum delta a bit under 1 year
+			if min_delta_to_previous > timedelta(days=360):
+				min_delta_to_previous = timedelta(days=360)
 			kept_dirs_count += 1
 			if verbose >= 3:
 				print >> sys.stderr, "Minimum delta to previous version is now %s." % (min_delta_to_previous)
