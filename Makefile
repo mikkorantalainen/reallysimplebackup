@@ -2,10 +2,12 @@
 PREFIX  ?= usr
 BINDIR  ?= $(PREFIX)/bin
 ETCDIR  ?= etc
+LIBDIR  ?= lib
 MANDIR  ?= $(PREFIX)/share/man
 
 # Complete the path names
 BINDIR  := $(DESTDIR)/$(BINDIR)
+LIBDIR  := $(DESTDIR)/$(LIBDIR)
 CONFDIR := $(DESTDIR)/$(ETCDIR)/reallysimplebackup
 CRONDIR := $(DESTDIR)/$(ETCDIR)/cron.d
 MANDIR  := $(DESTDIR)/$(MANDIR)
@@ -25,12 +27,16 @@ install:
 	install -D -o root -g root -m 644 rsync-exclude $(CONFDIR)/exclude
 	install -D -o root -g root -m 644 logrotate $(ETCDIR)/logrotate.d/reallysimplebackup
 
-	install -D -o root -g root -m 644 reallysimplebackup.cron $(CRONDIR)/reallysimplebackup
+	#install -D -o root -g root -m 644 reallysimplebackup.cron $(CRONDIR)/reallysimplebackup
 	install -D -o root -g root -m 644 reallysimplebackup.1  $(MANDIR)/man1/reallysimplebackup-rsync.1
 	gzip -9n $(MANDIR)/man1/reallysimplebackup-rsync.1
 	ln -s reallysimplebackup.1.gz $(MANDIR)/man1/reallysimplebackup-rotate.1.gz
 	ln -s reallysimplebackup.1.gz $(MANDIR)/man1/reallysimplebackup-backup-here.1.gz
 	ln -s reallysimplebackup.1.gz $(MANDIR)/man1/reallysimplebackup-list-old-print0.1.gz
+
+	install -D -o root -g root -m 644 reallysimplebackup-rsync.service $(LIBDIR)/systemd/system/reallysimplebackup-rsync.service
+	install -D -o root -g root -m 644 reallysimplebackup-cleanup-lockfiles.service $(LIBDIR)/systemd/system/reallysimplebackup-cleanup-lockfiles.service
+	install -D -o root -g root -m 644 reallysimplebackup-rsync.timer $(LIBDIR)/systemd/system/reallysimplebackup-rsync.timer
 
 clean:
 	rm -f *~

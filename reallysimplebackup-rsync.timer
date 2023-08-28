@@ -1,0 +1,11 @@
+[Unit]
+Description=Execute reallysimplebackup-rsync every 4 hours
+ConditionPathExists=/usr/bin/reallysimplebackup-rsync
+
+[Timer]
+OnStartupSec=10min
+OnUnitInactiveSec=4h
+
+[Install]
+WantedBy=timers.target
+

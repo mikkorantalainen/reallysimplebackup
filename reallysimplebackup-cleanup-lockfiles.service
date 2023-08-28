@@ -1,0 +1,12 @@
+[Unit]
+Description=Cleanup reallysimplebackup lock files after the reboot
+ConditionPathExists=/usr/bin/reallysimplebackup-rsync
+Documentation=man:reallysimplebackup-rsync.service(1)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/reallysimplebackup-rsync after-reboot
+
+[Install]
+WantedBy=multi-user.target
+

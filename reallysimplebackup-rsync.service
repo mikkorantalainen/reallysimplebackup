@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync files in current system to reallysimplebackup backup storage
+ConditionPathExists=/usr/bin/reallysimplebackup-rsync
+Documentation=man:reallysimplebackup-rsync.service(1)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/reallysimplebackup-rsync
+
