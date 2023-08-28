@@ -80,7 +80,7 @@ echo ""
 echo "Backup disk usage after backup:"
 df -h "$BACKUP_DIR/."
 
-FRESH_TIMESTAMP=$(find "$BACKUP_DIR/$BACKUP_ROTATE_TIMESTAMP" -mmin -1440)
+FRESH_TIMESTAMP="$(find "$BACKUP_DIR/$BACKUP_ROTATE_TIMESTAMP" -mmin -1440)"
 
 if test -z "$FRESH_TIMESTAMP"; then
 	touch "$BACKUP_DIR/$BACKUP_ROTATE_TIMESTAMP"
