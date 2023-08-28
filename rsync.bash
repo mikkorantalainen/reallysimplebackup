@@ -50,9 +50,10 @@ perfrun()
 }
 
 echo "Syncing files to backup directory ..."
+# Note: we use --delete-excluded to allow cleaning up the backup after adjusting exclude rules – without this flag, the files that were once backed up, will be kept forever in the backup
 perfrun nice ionice -c3 rsync $RSYNC_EXTRA_FLAGS \
 		--verbose --archive --recursive --human-readable \
-		--delete \
+		--delete --delete-excluded \
 		--include-from="$INCLUDE_FILE" \
 		--exclude-from="$EXCLUDE_FILE" \
 		/. "$BACKUP_DIR/$ACTIVE_BACKUP/."
