@@ -55,6 +55,7 @@
 - /srv/
 - /sys/
 - /usr/
+- /snap/
 
 # do not ever try to copy special stuff
 - /dev/

@@ -2,18 +2,18 @@ Source: reallysimplebackup
 Section: utils
 Priority: optional
 Maintainer: Mikko Rantalainen <mikko.rantalainen@iki.fi>
-Build-Depends: debhelper (>= 7)
-Standards-Version: 3.9.3
+Build-Depends: debhelper-compat (= 13)
+Rules-Requires-Root: binary-targets
+Standards-Version: 4.6.0
 Homepage: https://github.com/mikkorantalainen/reallysimplebackup
 Vcs-Git: https://github.com/mikkorantalainen/reallysimplebackup.git
 Vcs-Browser: https://github.com/mikkorantalainen/reallysimplebackup
 
 Package: reallysimplebackup
 Architecture: all
-Depends: ${misc:Depends}, python (>= 2.5), hardlink (>= 0.1.1), rsync (>= 3.0.3), util-linux (>= 2.14), logrotate, nocache
+Depends: ${misc:Depends}, python3:any, hardlink, rsync (>= 3.0.3), util-linux (>= 2.14), logrotate, nocache, systemd
 Description: Create and rotate online backups and synchronize offline backup
  Automatically synchronizes whole system to online backup, rotates the
  backup, hardlinks duplicate files to each other and removes old revisions
  of stored backups. Also contains a script to synchronize latest backup with
  offline storage, such as external USB hard drive.
-

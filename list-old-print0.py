@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # 
 # Iterates through the current directory looking for specially named
 # directories and keeps exponentially older versions - the directories

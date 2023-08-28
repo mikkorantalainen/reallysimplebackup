@@ -1,4 +1,4 @@
-http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
 Files: *
 Copyright: Copyright (C) 2009 Mikko Rantalainen <mikko.rantalainen@iki.fi>

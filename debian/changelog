@@ -1,3 +1,9 @@
+reallysimplebackup (2) jammy; urgency=medium
+
+  * Fix compatibility with Ubuntu 22.04 LTS
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Mon, 21 Aug 2023 22:13:04 +0300
+
 reallysimplebackup (0.0.1ubuntu12) bionic; urgency=medium
 
   * Documentation: fix typo in comment
@@ -98,4 +104,3 @@ reallysimplebackup (0.0.1) jaunty; urgency=low
   * Initial version
 
  -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Mon, 06 Apr 2009 00:10:50 +0300
-
