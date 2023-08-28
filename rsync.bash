@@ -65,12 +65,13 @@ case "$STATUS" in
 		echo "Sync completed successfully."
 		;;
 	24)
-		echo "Sync completed successfully ()"
+		echo "Assuming sync completed successfully (rsync exit value: $STATUS)"
 		;;
 	*)
-		echo "Sync failed, status=$STATUS (man rsync). Aborting..."
+		echo "Sync failed (rsync exit value: $STATUS). Aborting..."
 		# remove lock
 		rm --interactive=never -- "$BACKUP_DIR/$BACKUP_LOCK"
+		date +"%Y-%m-%d %H:%M:%S: Aborted backup synchronization."
 		exit 66
 		;;
 esac
