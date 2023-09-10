@@ -1,8 +1,23 @@
+reallysimplebackup (5) jammy; urgency=medium
+
+  * Fix python 3 compatibility
+  * Enable --delete-excluded for real
+  * Fix logging from systemd service (use our own log file instead of journal)
+  * Systemd: prefer low performance to allow running with less resources
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sun, 10 Sep 2023 13:54:13 +0300
+
+reallysimplebackup (4) jammy; urgency=medium
+
+  * test release with --dry-run --delete-excluded
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sat, 09 Sep 2023 16:50:22 +0300
+
 reallysimplebackup (3) jammy; urgency=medium
 
   * Convert cron jobs to systemd timers as recommended by latest specs.
 
- -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Mon, 28 Aug 2023 17:46:26 +0300
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Sat, 09 Sep 2023 16:49:39 +0300
 
 reallysimplebackup (2) jammy; urgency=medium
 
