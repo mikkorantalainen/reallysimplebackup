@@ -37,10 +37,10 @@ previous_kept_datetime = datetime.max # use previous (newer) time as maximum val
 
 for name in listing:
 	if verbose >= 3:
-		print >> sys.stderr, "Checking \""+name+"\"..."
+		print("Checking \""+name+"\"...", file=sys.stderr)
 	if not os.path.isdir(name): # look for directories only
 		if verbose >= 2:
-			print >> sys.stderr, "Ignoring \""+name+"\" (not a directory)."
+			print("Ignoring \""+name+"\" (not a directory).", file=sys.stderr)
 		ignored_count += 1
 	else: # 'name' is directory
 		try:
@@ -48,7 +48,7 @@ for name in listing:
 			name_date = datetime.strptime(name, DATE_FORMAT)
 		except ValueError: # Ignore directories that do match the date pattern
 			if verbose >= 2:
-				print >> sys.stderr, "Ignoring \""+name+"\" (did not match format " + DATE_FORMAT + ")."
+				print("Ignoring \""+name+"\" (did not match format " + DATE_FORMAT + ").", file=sys.stderr)
 			ignored_count += 1
 			continue
 			
@@ -57,18 +57,18 @@ for name in listing:
 
 		if abs(name_date - stat_date) > timedelta(minutes=DIRNAME_MAX_ERROR_MINUTES):
 			if verbose >= 2:
-				print >> sys.stderr, "Ignoring "+name+" because its timestamp is too far from its name."
+				print("Ignoring "+name+" because its timestamp is too far from its name.", file=sys.stderr)
 			if verbose >= 3:
-				print >> sys.stderr, "Difference was %s and limit was %s" % (abs(name_date - stat_date), timedelta(minutes=DIRNAME_MAX_ERROR_MINUTES))
+				print("Difference was %s and limit was %s" % (abs(name_date - stat_date), timedelta(minutes=DIRNAME_MAX_ERROR_MINUTES)), file=sys.stderr)
 			ignored_count += 1
 			continue
  
 		if verbose >= 3 and previous_kept_datetime < datetime.max:
-			print >> sys.stderr, "Difference to already kept backup: %s." % (previous_kept_datetime - stat_date)
+			print("Difference to already kept backup: %s." % (previous_kept_datetime - stat_date), file=sys.stderr)
 
 		if stat_date < previous_kept_datetime - min_delta_to_previous:
 			if verbose:
-				print >> sys.stderr, "Keeping directory \""+name+"\"."
+				print("Keeping directory \""+name+"\".", file=sys.stderr)
 			# update book keeping
 			previous_kept_datetime = stat_date;
 			min_delta_to_previous *= 2; # double the minimum time for the next revision
@@ -77,20 +77,21 @@ for name in listing:
 				min_delta_to_previous = timedelta(days=360)
 			kept_dirs_count += 1
 			if verbose >= 3:
-				print >> sys.stderr, "Minimum delta to previous version is now %s." % (min_delta_to_previous)
+				print("Minimum delta to previous version is now %s." % (min_delta_to_previous), file=sys.stderr)
 		else: # redundant directory
 			if verbose:
-				print >> sys.stderr, "Removing \""+name+"\" ..."
+				print("Removing \""+name+"\" ...", file=sys.stderr)
 			removed_dirs_count += 1
-			print ""+name+OUTPUT_NAME_SEPARATOR,
-			sys.stdout.write("") # reset the "print statement prints space and or newline between stuff" magic
+			print("" + name + OUTPUT_NAME_SEPARATOR, end="")
+			#sys.stdout.write("") # reset the "print statement prints space and or newline between stuff" magic
+			sys.stdout.flush()
 			#print "SHUTIL.RMTREE() DISABLED FOR TESTING"
 			#shutil.rmtree(name)
 			# for other possibilities, see for example: http://code.activestate.com/recipes/193736/
 
 if verbose:
-	print >> sys.stderr, "Statistics:"
-	print >> sys.stderr, "Removed "+str(removed_dirs_count)+" directories"
-	print >> sys.stderr, "Kept "+str(kept_dirs_count)+" directories"
-	print >> sys.stderr, "Ignored "+str(ignored_count)+" directory entries"
+	print("Statistics:", file=sys.stderr)
+	print("Removed "+str(removed_dirs_count)+" directories", file=sys.stderr)
+	print("Kept "+str(kept_dirs_count)+" directories", file=sys.stderr)
+	print("Ignored "+str(ignored_count)+" directory entries", file=sys.stderr)
 
