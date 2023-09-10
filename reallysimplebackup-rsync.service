@@ -7,3 +7,5 @@ Documentation=man:reallysimplebackup-rsync.service(1)
 Type=oneshot
 ExecStart=/usr/bin/reallysimplebackup-rsync
 
+StandardOutput=append:/var/log/reallysimplebackup.log
+StandardError=inherit
