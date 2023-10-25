@@ -6,10 +6,12 @@ Documentation=man:reallysimplebackup-rsync.service(1)
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/reallysimplebackup-rsync after-reboot
-MemoryHigh=1G
+MemoryHigh=20%
 # default to using 1% of the CPU and IO if system is tasked
 CPUWeight=1
 IOWeight=1
+StandardOutput=append:/var/log/reallysimplebackup.log
+StandardError=inherit
 
 [Install]
 WantedBy=multi-user.target

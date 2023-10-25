@@ -1,3 +1,10 @@
+reallysimplebackup (6) jammy; urgency=medium
+
+  * Fix: Add resource limits to timer executed syncs too.
+  * Limit resources to 1/5th of the system, not hardcoded value
+
+ -- Mikko Rantalainen <mikko.rantalainen@iki.fi>  Wed, 25 Oct 2023 11:07:24 +0300
+
 reallysimplebackup (5) jammy; urgency=medium
 
   * Fix python 3 compatibility

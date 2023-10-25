@@ -1,0 +1,15 @@
+[Unit]
+Description=Run reallysimplebackup-rsync once after reboot
+
+[Timer]
+# run backup once after the reboot
+OnBootSec=5min
+
+[Install]
+WantedBy=timers.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/reallysimplebackup-rsync after-reboot
+StandardOutput=append:/var/log/reallysimplebackup.log
+StandardError=inherit

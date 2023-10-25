@@ -1,0 +1,16 @@
+[Unit]
+Description=Run reallysimplebackup-rsync once every 4 hours
+
+[Timer]
+# run backup every 4 hours, starting 4 hours after the boot
+OnBootSec=4h
+OnUnitActiveSec=4h
+
+[Install]
+WantedBy=timers.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/reallysimplebackup-rsync
+StandardOutput=append:/var/log/reallysimplebackup.log
+StandardError=inherit
